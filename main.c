@@ -1,3 +1,6 @@
+/**
+ * Copyright 2021 David Thompson
+ */
 #include <ncurses.h>
 
 /* red --> orange */
