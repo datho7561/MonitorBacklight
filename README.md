@@ -16,7 +16,11 @@ Requires a terminal emulator with 256 colour support.
 
 There are no command line arguments as of now.
 
-Use the vim keys (`h`, `j` ,`k`, `l`) in order to select 1 of the 16 available
+Use the vim keys (`h`, `j` ,`k`, `l`)
+or the arrow keys
+in order to select 1 of the 16 available
 colours in a 4x4 grid.
 The colours range from red to orange with different brightness levels.
 Horizontal movement changes hue, vertical changes brightness (roughly).
+
+Use Ctrl+C or 'q'/'Q' to exit.

@@ -22,6 +22,9 @@ int main() {
   int running = 1;
   /* Make an empty screen */
   initscr();
+  /* Enable keypad mode, which allows arrow key detection */
+  /* see: https://stackoverflow.com/questions/43923546/proper-way-of-catching-controlkey-in-ncurses */
+  keypad(stdscr, TRUE);
   /* Enable color support */
   start_color();
   do {
@@ -34,36 +37,40 @@ int main() {
     refresh();
 
     /* Wait for character to be pressed */
-    char pressed = getch();
+    int pressed = getch();
+    move(0, 0);
 
-    /* vi keys to move around matrix */
-    /* if non-'hjkl' was pressed, exit the program */
     switch (pressed) {
     case 'h':
     case 'H':
+    case KEY_LEFT:
       c--;
       if (c < 0)
         c = 0;
       break;
     case 'j':
     case 'J':
+    case KEY_DOWN:
       r++;
       if (r >= 4)
         r = 3;
       break;
     case 'k':
     case 'K':
+    case KEY_UP:
       r--;
       if (r < 0)
         r = 0;
       break;
     case 'l':
     case 'L':
+    case KEY_RIGHT:
       c++;
       if (c >= 4)
         c = 3;
       break;
-    default:
+    case 'q':
+    case 'Q':
       running = 0;
       break;
     }
